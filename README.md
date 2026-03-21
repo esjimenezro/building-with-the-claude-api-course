@@ -58,7 +58,7 @@ Obtén tu API key en: https://console.anthropic.com/
 
 | # | Módulo | Dominio del examen | Estado |
 |---|--------|--------------------|--------|
-| 01 | Basics: mensajes, roles, system prompt | Context Management (15%) | ⬜ |
+| 01 | Basics: mensajes, roles, system prompt | Context Management (15%) | ✅ |
 | 02 | Tool use: diseño y routing | Tool Design & MCP (18%) | ⬜ |
 | 03 | Agentic loop: stop_reason, iteraciones | Agentic Architecture (27%) | ⬜ |
 | 04 | Multi-agent: coordinador + subagentes | Agentic Architecture (27%) | ⬜ |
