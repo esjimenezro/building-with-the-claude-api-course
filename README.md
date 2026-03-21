@@ -19,7 +19,6 @@ building-with-the-claude-api-course/
 │   └── 06-context-management/  # Manejo de contexto, ventana, "lost in the middle"
 ├── src/
 │   └── utils.py                # Helpers reutilizables
-├── exercises/                  # Ejercicios prácticos por módulo
 ├── resources/                  # Notas, cheatsheets y material de referencia
 ├── .env.example                # Variables de entorno requeridas
 ├── requirements.txt            # Dependencias Python
@@ -33,25 +32,18 @@ building-with-the-claude-api-course/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/building-with-the-claude-api-course.git
+git clone https://github.com/esjimenezro/building-with-the-claude-api-course.git
 cd building-with-the-claude-api-course
 ```
 
-### 2. Crear entorno virtual
+### 2. Crear entorno virtual e instalar dependencias
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # macOS/Linux
-# venv\Scripts\activate         # Windows
+uv sync
+source .venv/bin/activate        # macOS/Linux
 ```
 
-### 3. Instalar dependencias
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar variables de entorno
+### 3. Configurar variables de entorno
 
 ```bash
 cp .env.example .env
