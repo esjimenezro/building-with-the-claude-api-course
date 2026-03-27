@@ -31,15 +31,28 @@ def get_client() -> Anthropic:
     return Anthropic(api_key=api_key)
 
 
-def get_model() -> str:
+def get_model(
+    default_model: str = "claude-sonnet-4-0",
+    use_default: bool = False
+) -> str:
     """
     Returns the model configured in the environment variables.
     If not found, returns the default model (claude-sonnet-4-0).
+    If use_default is True, it will return the default model
+    regardless of the environment variable.
+
+    Args:
+        default_model (str): The default model to use if not found in the
+            environment variables.
+        use_default (bool): If True, it will return the default model
+            regardless of the environment variable.
 
     Returns:
         str: The name of the model to use for API calls.
     """
-    return os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-0")
+    if use_default:
+        return default_model
+    return os.getenv("ANTHROPIC_MODEL", default_model)
 
 
 def add_user_message(messages: list, content: str) -> None:

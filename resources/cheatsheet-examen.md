@@ -1,13 +1,13 @@
 # Cheatsheet — Claude Certified Architect (CCA) Foundations
 
-Referencia rápida de los conceptos más evaluados en el examen.
+Quick reference for the most frequently tested concepts on the exam.
 
 ---
 
-## Distribución del examen
+## Exam Distribution
 
-| Dominio | Peso |
-|---------|------|
+| Domain | Weight |
+|--------|--------|
 | Agentic Architecture & Orchestration | 27% |
 | Claude Code Configuration & Workflows | 20% |
 | Prompt Engineering & Structured Output | 20% |
@@ -16,98 +16,98 @@ Referencia rápida de los conceptos más evaluados en el examen.
 
 ---
 
-## Concepto #1: Enforcement programático vs. guía por prompt
+## Concept #1: Programmatic Enforcement vs. Prompt Guidance
 
-**Regla:** Cuando algo DEBE ocurrir sin excepción, usa código. No prompts.
+**Rule:** When something MUST happen without exception, use code. Not prompts.
 
 ```
-✅ Programático: verificar identidad ANTES de ejecutar reembolso
-❌ Prompt: "siempre verifica la identidad antes de un reembolso"
+✅ Programmatic: verify identity BEFORE executing a refund
+❌ Prompt: "always verify identity before a refund"
 ```
 
-Los prompts tienen tasa de fallo no-cero. En producción, eso no es aceptable.
+Prompts have a non-zero failure rate. In production, that is not acceptable.
 
 ---
 
-## Concepto #2: Agentic Loop
+## Concept #2: Agentic Loop
 
 ```python
 while True:
     response = client.messages.create(...)
     
     if response.stop_reason == "end_turn":
-        break  # ✅ Terminar aquí
+        break  # ✅ Stop here
     
     if response.stop_reason == "tool_use":
-        # Ejecutar tools y devolver resultados
+        # Execute tools and return results
         ...
 ```
 
-❌ NO: detectar fin del loop por contenido de texto
-❌ NO: usar un contador de iteraciones como mecanismo principal de parada
+❌ DO NOT: detect loop end by text content
+❌ DO NOT: use an iteration counter as the primary stop mechanism
 
 ---
 
-## Concepto #3: Subagentes no heredan contexto
+## Concept #3: Subagents Do Not Inherit Context
 
-En multi-agent, CADA subagente recibe solo lo que le pasas explícitamente.
+In multi-agent systems, EACH subagent receives only what you explicitly pass it.
 
 ```
-Coordinador                Subagente
+Orchestrator               Subagent
 ────────────────           ──────────────────────────────
-historial completo    →    SOLO lo que pasas en el prompt
-                           No hay memoria compartida
+full history          →    ONLY what you pass in the prompt
+                           No shared memory
 ```
 
 ---
 
-## Concepto #4: Tool descriptions son el mecanismo de routing
+## Concept #4: Tool Descriptions Are the Routing Mechanism
 
-La descripción es lo que Claude usa para decidir qué tool llamar.
+The description is what Claude uses to decide which tool to call.
 
 ```python
-# ❌ Descripción vaga — Claude adivinará
-{"name": "search", "description": "Busca información"}
+# ❌ Vague description — Claude will guess
+{"name": "search", "description": "Search for information"}
 
-# ✅ Descripción precisa — Claude rutea bien
+# ✅ Precise description — Claude routes correctly
 {
     "name": "search_web",
     "description": (
-        "Busca información actual en internet. "
-        "Úsala para: noticias recientes, precios actuales, eventos. "
-        "NO para: documentos internos, datos históricos de la empresa."
+        "Search for current information on the internet. "
+        "Use for: recent news, current prices, events. "
+        "NOT for: internal documents, historical company data."
     )
 }
 ```
 
 ---
 
-## Concepto #5: Batch API vs. Real-time API
+## Concept #5: Batch API vs. Real-time API
 
 | | Batch API | Real-time API |
 |-|-----------|---------------|
-| Costo | 50% menos | Precio normal |
-| SLA | Hasta 24 hrs, sin garantía | Inmediato |
-| Usar para | Reportes nocturnos, auditorías | Workflows bloqueantes |
+| Cost | 50% less | Normal price |
+| SLA | Up to 24 hrs, no guarantee | Immediate |
+| Use for | Nightly reports, audits | Blocking workflows |
 
-**Regla:** La elección NO es por costo — es por latencia y bloqueo.
-
----
-
-## Trampas comunes del examen
-
-| Lo que parece correcto | Por qué está mal |
-|------------------------|------------------|
-| Few-shot examples para ordenar tools | El orden es compliance → usa prerequisites programáticos |
-| Self-reported confidence para escalación | LLM calibra mal su confianza en casos difíciles |
-| Batch API para ahorrar en todo | No tiene SLA; workflows bloqueantes necesitan real-time |
-| Ventana de contexto más grande = mejor atención | Context window ≠ calidad de atención |
-| Retornar vacío en fallo de subagente | Suprime errores → el coordinador no puede recuperarse |
-| Dar todas las tools a todos los agentes | Degrada la selección; usa 4-5 tools por agente |
+**Rule:** The choice is NOT about cost — it's about latency and blocking.
 
 ---
 
-## Los 6 escenarios del examen (estudia todos — solo 4 aparecen)
+## Common Exam Traps
+
+| What seems correct | Why it's wrong |
+|--------------------|----------------|
+| Few-shot examples to order tools | Ordering is a compliance concern → use programmatic prerequisites |
+| Self-reported confidence for escalation | LLMs poorly calibrate confidence in hard cases |
+| Batch API to save on everything | No SLA; blocking workflows need real-time |
+| Larger context window = better attention | Context window ≠ quality of attention |
+| Return empty on subagent failure | Suppresses errors → orchestrator cannot recover |
+| Give all tools to all agents | Degrades selection; use 4-5 tools per agent |
+
+---
+
+## The 6 Exam Scenarios (study all — only 4 appear)
 
 1. Customer Support Resolution Agent
 2. Code Generation with Claude Code
