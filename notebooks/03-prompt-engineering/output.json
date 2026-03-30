@@ -1,0 +1,63 @@
+[
+  {
+    "output": "# One-Day Meal Plan for Endurance Athlete\n\n**Athlete Profile:**\n- Height: 175cm, Weight: 65kg\n- Goal: Maintain endurance performance with twice daily training\n- Restrictions: Vegetarian, nut allergy\n\n**Daily Targets:**\n- **Total Calories:** 3,200 kcal\n- **Carbohydrates:** 400g (50%)\n- **Protein:** 130g (16%)\n- **Fat:** 120g (34%)\n\n---\n\n## Meal Schedule\n\n### **5:30 AM - Pre-Training Meal 1**\n- Banana: 120g\n- Oatmeal (dry): 40g\n- Honey: 15g\n- Soy milk: 200ml\n\n**Macros:** 520 kcal | 18g protein | 95g carbs | 8g fat\n\n---\n\n### **8:00 AM - Post-Training Breakfast**\n- Greek yogurt (plain): 200g\n- Berries (mixed): 150g\n- Granola (nut-free): 50g\n- Maple syrup: 20g\n\n**Macros:** 580 kcal | 25g protein | 85g carbs | 15g fat\n\n---\n\n### **11:00 AM - Mid-Morning Snack**\n- Whole grain toast: 2 slices (60g)\n- Avocado: 80g\n- Hemp seeds: 15g\n- Tomato: 50g\n\n**Macros:** 420 kcal | 12g protein | 35g carbs | 28g fat\n\n---\n\n### **1:00 PM - Lunch**\n- Quinoa (cooked): 150g\n- Black beans (cooked): 120g\n- Sweet potato (roasted): 200g\n- Olive oil: 10ml\n- Mixed vegetables: 150g\n\n**Macros:** 650 kcal | 22g protein | 95g carbs | 18g fat\n\n---\n\n### **3:30 PM - Pre-Training Meal 2**\n- Dates: 40g\n- Rice cakes: 25g\n- Sports drink: 250ml\n\n**Macros:** 280 kcal | 2g protein | 70g carbs | 1g fat\n\n---\n\n### **6:00 PM - Post-Training Dinner**\n- Brown rice (cooked): 120g\n- Tofu (firm): 150g\n- Stir-fried vegetables: 200g\n- Sesame oil: 10ml\n- Soy sauce: 15ml\n\n**Macros:** 580 kcal | 28g protein | 65g carbs | 22g fat\n\n---\n\n### **8:30 PM - Evening Snack**\n- Protein smoothie:\n  - Soy protein powder: 30g\n  - Banana: 100g\n  - Oat milk: 250ml\n  - Chia seeds: 15g\n\n**Macros:** 370 kcal | 25g protein | 45g carbs | 12g fat\n\n---\n\n## **Daily Totals:**\n- **Calories:** 3,200 kcal\n- **Protein:** 132g (16.5%)\n- **Carbohydrates:** 490g (61%)\n- **Fat:** 104g (29%)\n\n## **Timing Notes:**\n- Eat 2-3 hours before morning training\n- Post-workout meals within 30-60 minutes\n- Stay hydrated with 3-4 liters of water throughout the day\n- Adjust portions based on training intensity and personal tolerance\n\nThis plan provides sustained energy for dual training sessions while meeting vegetarian and nut-free requirements.",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "175",
+        "weight": "65",
+        "goal": "Maintain endurance performance with twice daily training sessions",
+        "restrictions": "Vegetarian diet, nut allergy"
+      },
+      "solution_criteria": [
+        "Provides complete 1-day meal plan",
+        "Excludes all nuts and meat products",
+        "Supports high energy needs for endurance training"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a vegetarian endurance runner who trains twice daily and has a nut allergy"
+    },
+    "score": 9,
+    "reasoning": "The solution comprehensively meets all mandatory requirements and secondary criteria. It provides a complete meal plan with exact portions and timing, strictly excludes nuts and meat products, and delivers appropriate high-energy nutrition for endurance training. The minor calculation discrepancy doesn't detract from the overall quality and completeness of the plan."
+  },
+  {
+    "output": "# One-Day Meal Plan for Competition Travel\n\n**Athlete Profile:** 175cm, 68kg athlete traveling to nationals competition\n**Total Daily Calories:** ~2,800 calories\n**Macronutrient Breakdown:** 420g carbs (60%) | 140g protein (20%) | 62g fat (20%)\n\n---\n\n## **6:00 AM - Pre-Travel Breakfast**\n- Instant oatmeal (80g dry) with hot water\n- Banana (120g)\n- Peanut butter (20g)\n- Protein powder mixed with water (30g scoop)\n\n**Calories:** 685 | **Carbs:** 85g | **Protein:** 32g | **Fat:** 18g\n\n---\n\n## **9:00 AM - Mid-Morning Snack**\n- Whole grain crackers (40g)\n- Individual almond butter packets (32g)\n- Dried dates (40g)\n\n**Calories:** 415 | **Carbs:** 45g | **Protein:** 12g | **Fat:** 20g\n\n---\n\n## **12:00 PM - Travel Lunch**\n- Tuna pouch (85g)\n- Whole wheat pita bread (60g)\n- Individual hummus cup (56g)\n- Trail mix with nuts and dried fruit (30g)\n\n**Calories:** 580 | **Carbs:** 55g | **Protein:** 28g | **Fat:** 18g\n\n---\n\n## **3:00 PM - Afternoon Fuel**\n- Sports drink (500ml bottle)\n- Granola bar (40g)\n- Apple slices, dried (25g)\n\n**Calories:** 305 | **Carbs:** 75g | **Protein:** 4g | **Fat:** 3g\n\n---\n\n## **6:00 PM - Pre-Competition Dinner**\n- Instant brown rice cup (85g dry)\n- Chicken breast, pre-cooked pouch (85g)\n- Mixed nuts (20g)\n- Electrolyte drink powder with water (1 packet)\n\n**Calories:** 515 | **Carbs:** 68g | **Protein:** 32g | **Fat:** 12g\n\n---\n\n## **8:30 PM - Recovery Snack**\n- Greek yogurt cup (170g)\n- Honey packets (20g)\n- Pretzels (30g)\n\n**Calories:** 300 | **Carbs:** 47g | **Fat:** 6g | **Protein:** 17g\n\n---\n\n## **Hydration Schedule:**\n- **6:00 AM:** 500ml water\n- **Every 2 hours:** 300-400ml water or sports drink\n- **Total fluid goal:** 3-4 liters throughout travel day\n\n## **Travel Tips:**\n- Pack items in TSA-compliant containers\n- Bring insulated bag for perishables during first few hours\n- Set phone alarms for eating schedule\n- Keep extra snacks (granola bars, nuts) for delays\n\n**Daily Totals:** 2,800 calories | 375g carbs | 125g protein | 77g fat",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "175",
+        "weight": "68",
+        "goal": "maintain energy and performance during nationals competition travel day",
+        "restrictions": "no shellfish, needs portable non-perishable options for 8-hour travel"
+      },
+      "solution_criteria": [
+        "Includes portable, travel-friendly meals",
+        "Provides adequate calories for competitive swimmer",
+        "Accommodates shellfish restriction"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a teenage swimmer competing at nationals who needs portable meals for travel day"
+    },
+    "score": 8,
+    "reasoning": "The solution comprehensively meets all mandatory requirements and secondary criteria. It provides a well-structured meal plan with appropriate caloric intake for a competitive athlete, uses exclusively portable non-perishable foods suitable for travel, and completely avoids shellfish. The minor mathematical inconsistency in macronutrient totals doesn't significantly impact the overall quality or usability of the plan."
+  },
+  {
+    "output": "# One-Day Meal Plan for Powerlifting Bulking Phase\n\n**Athlete Profile:**\n- Height: 180cm | Weight: 95kg\n- Goal: Bulking phase for powerlifting\n- Restrictions: No seafood, quick meal prep preferred\n\n**Daily Targets:**\n- **Calories:** 3,500 kcal\n- **Protein:** 190g (2.0g/kg body weight)\n- **Carbohydrates:** 438g (50% of calories)\n- **Fat:** 117g (30% of calories)\n\n---\n\n## MEAL 1 - PRE-WORKOUT (6:00 AM)\n**Quick Oatmeal Bowl**\n- Rolled oats: 80g\n- Banana: 120g (1 medium)\n- Peanut butter: 20g\n- Honey: 15g\n- Whole milk: 200ml\n\n*Macros: 750 kcal | 23g protein | 96g carbs | 28g fat*\n\n---\n\n## MEAL 2 - POST-WORKOUT (9:00 AM)\n**Protein-Packed Breakfast**\n- Whole eggs: 3 large (150g)\n- Egg whites: 100ml\n- Whole grain bread: 80g (2 thick slices)\n- Avocado: 60g (\u00bd medium)\n- Greek yogurt (0% fat): 150g\n\n*Macros: 720 kcal | 45g protein | 52g carbs | 24g fat*\n\n---\n\n## MEAL 3 - LUNCH (1:00 PM)\n**Power Bowl**\n- Chicken breast (cooked): 150g\n- Brown rice (cooked): 200g\n- Sweet potato (baked): 150g\n- Olive oil: 15ml\n- Mixed vegetables (broccoli, carrots): 100g\n\n*Macros: 860 kcal | 52g protein | 98g carbs | 20g fat*\n\n---\n\n## MEAL 4 - AFTERNOON SNACK (4:00 PM)\n**Quick Protein Smoothie**\n- Whey protein powder: 40g\n- Whole milk: 250ml\n- Frozen berries: 100g\n- Oats: 40g\n- Almond butter: 20g\n\n*Macros: 650 kcal | 42g protein | 52g carbs | 25g fat*\n\n---\n\n## MEAL 5 - DINNER (7:30 PM)\n**Hearty Dinner Plate**\n- Ground beef (85% lean, cooked): 120g\n- Whole wheat pasta (cooked): 150g\n- Olive oil: 10ml\n- Parmesan cheese: 20g\n- Mixed salad with olive oil dressing: 100g salad + 10ml oil\n\n*Macros: 780 kcal | 42g protein | 68g carbs | 32g fat*\n\n---\n\n## MEAL 6 - EVENING SNACK (10:00 PM)\n**Casein Recovery**\n- Casein protein powder: 30g\n- Whole milk: 200ml\n- Almonds: 25g\n- Dark chocolate (70%): 15g\n\n*Macros: 440 kcal | 28g protein | 22g carbs | 26g fat*\n\n---\n\n## DAILY TOTALS:\n- **Calories:** 4,200 kcal\n- **Protein:** 232g (22% of calories)\n- **Carbohydrates:** 388g (37% of calories) \n- **Fat:** 155g (33% of calories)\n\n---\n\n## MEAL PREP TIPS:\n1. **Sunday prep:** Cook chicken breast, brown rice, and sweet potatoes in bulk\n2. **Pre-portion:** Divide proteins and carbs into containers\n3. **Quick assembly:** Most meals take 2-3 minutes to assemble\n4. **Smoothie packs:** Pre-portion frozen fruits and oats for smoothies\n5. **Hard-boil eggs:** Prep a dozen for the week\n\n## HYDRATION:\n-",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "180",
+        "weight": "95",
+        "goal": "bulking phase for powerlifting",
+        "restrictions": "no seafood, prefers quick meal prep"
+      },
+      "solution_criteria": [
+        "Provides complete 1-day meal plan",
+        "Includes high-calorie foods suitable for bulking",
+        "Contains no seafood",
+        "Features quick-prep meal options"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a powerlifter in bulking phase who prefers quick meal prep and dislikes seafood"
+    },
+    "score": 8,
+    "reasoning": "The solution fully satisfies all mandatory requirements and secondary criteria. It provides a comprehensive 1-day meal plan with exact portions, timing, and macros. The plan is well-suited for bulking with high-calorie foods, contains no seafood, and emphasizes quick meal preparation. The incomplete hydration section and caloric target discrepancy are minor issues that don't significantly detract from the overall quality."
+  }
+]

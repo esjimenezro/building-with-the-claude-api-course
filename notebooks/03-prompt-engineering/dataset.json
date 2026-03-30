@@ -1,0 +1,48 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "175",
+      "weight": "65",
+      "goal": "Maintain endurance performance with twice daily training sessions",
+      "restrictions": "Vegetarian diet, nut allergy"
+    },
+    "solution_criteria": [
+      "Provides complete 1-day meal plan",
+      "Excludes all nuts and meat products",
+      "Supports high energy needs for endurance training"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a vegetarian endurance runner who trains twice daily and has a nut allergy"
+  },
+  {
+    "prompt_inputs": {
+      "height": "180",
+      "weight": "95",
+      "goal": "bulking phase for powerlifting",
+      "restrictions": "no seafood, prefers quick meal prep"
+    },
+    "solution_criteria": [
+      "Provides complete 1-day meal plan",
+      "Includes high-calorie foods suitable for bulking",
+      "Contains no seafood",
+      "Features quick-prep meal options"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a powerlifter in bulking phase who prefers quick meal prep and dislikes seafood"
+  },
+  {
+    "prompt_inputs": {
+      "height": "175",
+      "weight": "68",
+      "goal": "maintain energy and performance during nationals competition travel day",
+      "restrictions": "no shellfish, needs portable non-perishable options for 8-hour travel"
+    },
+    "solution_criteria": [
+      "Includes portable, travel-friendly meals",
+      "Provides adequate calories for competitive swimmer",
+      "Accommodates shellfish restriction"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a teenage swimmer competing at nationals who needs portable meals for travel day"
+  }
+]
