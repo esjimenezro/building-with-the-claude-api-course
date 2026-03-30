@@ -1,11 +1,17 @@
 [
   {
-    "task": "Write a Python function that extracts the AWS region from an S3 bucket URL in the format 's3://bucket-name.region.amazonaws.com'. The function should return the region name."
+    "task": "Create a JSON policy document that allows an IAM user to read objects from a specific S3 bucket named 'my-app-logs' and list the bucket contents",
+    "format": "json",
+    "solution_criteria": "Must include correct Version, Statement structure with Effect 'Allow', Principal or not specified for IAM policy, Action including s3:GetObject and s3:ListBucket, Resource ARNs for both bucket and objects with correct syntax"
   },
   {
-    "task": "Create a JSON object that represents an AWS IAM policy allowing read-only access to a specific S3 bucket named 'my-data-bucket'. Include the necessary Action, Resource, and Effect fields."
+    "task": "Write a Python function that takes an AWS S3 object key (file path) and extracts the file extension, handling edge cases where there might be no extension",
+    "format": "python",
+    "solution_criteria": "Function should accept a string parameter, handle empty strings and paths without extensions gracefully, return the extension including the dot (e.g., '.txt') or empty string if no extension, and work with nested folder structures"
   },
   {
-    "task": "Write a regular expression that matches valid AWS EC2 instance IDs, which follow the pattern of 'i-' followed by exactly 17 hexadecimal characters (e.g., i-0a1b2c3d4e5f6g7h8)."
+    "task": "Create a regular expression pattern that matches valid AWS Lambda function names according to AWS naming conventions",
+    "format": "regex",
+    "solution_criteria": "Must match strings that are 1-64 characters long, contain only letters, numbers, hyphens, and underscores, cannot start or end with hyphen, and should reject invalid names like those starting with numbers or containing spaces"
   }
 ]
