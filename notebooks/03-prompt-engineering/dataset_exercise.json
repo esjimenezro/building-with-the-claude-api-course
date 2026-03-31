@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "This randomized controlled trial examined the effects of cognitive behavioral therapy on anxiety symptoms in college students. Participants (N=120) were randomly assigned to either the treatment group receiving 12 weeks of CBT or a waitlist control condition. The Beck Anxiety Inventory served as the primary outcome measure, administered at baseline, post-treatment, and 3-month follow-up. Results indicated a significant between-groups effect size (Cohen's d = 0.82, p < .001), with the treatment group showing clinically meaningful reductions in anxiety scores. A repeated measures ANOVA revealed significant time \u00d7 condition interactions, suggesting sustained therapeutic benefits. The study employed intention-to-treat analysis to address participant attrition, which occurred at a rate of 15% across conditions."
+    },
+    "solution_criteria": [
+      "Extracts psychology-specific topics",
+      "Includes statistical and research methodology terms",
+      "Returns valid JSON array format"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with psychology research featuring statistical methods, behavioral concepts, and experimental design terminology"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Coastal wetland restoration projects face complex challenges at the intersection of marine ecology, climate adaptation, and regulatory frameworks. Rising sea levels threaten existing salt marsh ecosystems, while increased storm intensity from climate change accelerates erosion rates by 15-30% annually. Restoration efforts must navigate federal permitting processes under the Clean Water Act, coordinate with state coastal zone management programs, and address concerns from local fishing communities whose livelihoods depend on these transitional habitats. Recent studies demonstrate that restored wetlands can sequester 2-4 tons of carbon per hectare annually while providing critical nursery habitat for commercially important fish species, yet funding mechanisms often fail to account for these ecosystem service values in cost-benefit analyses."
+    },
+    "solution_criteria": [
+      "Identifies ecological topics from the passage",
+      "Identifies policy/regulatory topics from the passage",
+      "Identifies climate-related topics from the passage",
+      "Returns topics as a JSON array of strings"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with interdisciplinary environmental science research containing overlapping ecological, policy, and climate topics"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The Great Depression's impact on American labor movements between 1929 and 1935 reveals complex patterns of worker organization and resistance. Using quantitative analysis of strike data from the Bureau of Labor Statistics and qualitative examination of union correspondence, this study employs a mixed-methods approach to analyze the Wagner Act's legislative history. The Congress of Industrial Organizations (CIO) emerged as a counterforce to the American Federation of Labor (AFL), particularly in Detroit's automotive sector where sit-down strikes at General Motors plants demonstrated new tactical approaches. Archival research at the Walter P. Reuther Library uncovered previously unexamined documents revealing how John L. Lewis's United Mine Workers provided both financial and strategic support to nascent industrial unions, fundamentally reshaping collective bargaining practices through the National Labor Relations Board's early rulings."
+    },
+    "solution_criteria": [
+      "Extracts historical topics including time periods, organizations, and methodological approaches",
+      "Returns output as a JSON array of strings",
+      "Identifies proper nouns and specific historical elements"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with historical analysis containing specific dates, proper nouns, and methodological approaches"
+  },
+  {
+    "prompt_inputs": {
+      "content": "This study examines the relationship between sleep deprivation and cognitive performance in university students. Using a randomized controlled trial with 120 participants, we measured attention span, memory recall, and decision-making abilities after varying periods of sleep restriction. Results indicate significant impairments in all cognitive domains when sleep was reduced to fewer than six hours per night."
+    },
+    "solution_criteria": [
+      "Extracts 2-3 distinct topics from the abstract",
+      "Returns topics as a JSON array of strings"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with short abstract containing only 2-3 clear distinct topics to verify minimal extraction accuracy"
+  }
+]

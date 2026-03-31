@@ -1,0 +1,270 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.2 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">75.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with psychology research featuring statistical methods, behavioral concepts, and experimental design terminology</td>
+                <td class="prompt-inputs"><strong>content:</strong> This randomized controlled trial examined the effects of cognitive behavioral therapy on anxiety symptoms in college students. Participants (N=120) were randomly assigned to either the treatment group receiving 12 weeks of CBT or a waitlist control condition. The Beck Anxiety Inventory served as the primary outcome measure, administered at baseline, post-treatment, and 3-month follow-up. Results indicated a significant between-groups effect size (Cohen's d = 0.82, p < .001), with the treatment group showing clinically meaningful reductions in anxiety scores. A repeated measures ANOVA revealed significant time × condition interactions, suggesting sustained therapeutic benefits. The study employed intention-to-treat analysis to address participant attrition, which occurred at a rate of 15% across conditions.</td>
+                <td class="criteria">• Extracts psychology-specific topics<br>• Includes statistical and research methodology terms<br>• Returns valid JSON array format</td>
+                <td class="output"><pre>
+[
+  "randomized controlled trial",
+  "cognitive behavioral therapy",
+  "anxiety symptoms",
+  "college students",
+  "treatment group",
+  "waitlist control condition",
+  "Beck Anxiety Inventory",
+  "baseline measurement",
+  "post-treatment assessment",
+  "follow-up assessment",
+  "effect size",
+  "Cohen's d",
+  "repeated measures ANOVA",
+  "time × condition interactions",
+  "therapeutic benefits",
+  "intention-to-treat analysis",
+  "participant attrition"
+]
+</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it's a valid JSON array of strings containing topics from the article without extra commentary, and includes only the JSON array. It also fully satisfies all secondary criteria by extracting psychology-specific topics, statistical terms, and research methodology concepts comprehensively.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with interdisciplinary environmental science research containing overlapping ecological, policy, and climate topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Coastal wetland restoration projects face complex challenges at the intersection of marine ecology, climate adaptation, and regulatory frameworks. Rising sea levels threaten existing salt marsh ecosystems, while increased storm intensity from climate change accelerates erosion rates by 15-30% annually. Restoration efforts must navigate federal permitting processes under the Clean Water Act, coordinate with state coastal zone management programs, and address concerns from local fishing communities whose livelihoods depend on these transitional habitats. Recent studies demonstrate that restored wetlands can sequester 2-4 tons of carbon per hectare annually while providing critical nursery habitat for commercially important fish species, yet funding mechanisms often fail to account for these ecosystem service values in cost-benefit analyses.</td>
+                <td class="criteria">• Identifies ecological topics from the passage<br>• Identifies policy/regulatory topics from the passage<br>• Identifies climate-related topics from the passage<br>• Returns topics as a JSON array of strings</td>
+                <td class="output"><pre>
+[
+  "coastal wetland restoration",
+  "marine ecology",
+  "climate adaptation",
+  "regulatory frameworks",
+  "rising sea levels",
+  "salt marsh ecosystems",
+  "storm intensity",
+  "climate change",
+  "erosion rates",
+  "federal permitting processes",
+  "Clean Water Act",
+  "state coastal zone management programs",
+  "local fishing communities",
+  "transitional habitats",
+  "carbon sequestration",
+  "nursery habitat",
+  "commercially important fish species",
+  "funding mechanisms",
+  "ecosystem service values",
+  "cost-benefit analyses"
+]
+</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements by providing a clean JSON array of topic strings without commentary. It successfully identifies topics across all required categories: ecological (marine ecology, salt marsh ecosystems, nursery habitat), policy/regulatory (Clean Water Act, federal permitting, coastal zone management), and climate-related (climate change, rising sea levels, storm intensity). The extraction is comprehensive and accurate to the source material.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with historical analysis containing specific dates, proper nouns, and methodological approaches</td>
+                <td class="prompt-inputs"><strong>content:</strong> The Great Depression's impact on American labor movements between 1929 and 1935 reveals complex patterns of worker organization and resistance. Using quantitative analysis of strike data from the Bureau of Labor Statistics and qualitative examination of union correspondence, this study employs a mixed-methods approach to analyze the Wagner Act's legislative history. The Congress of Industrial Organizations (CIO) emerged as a counterforce to the American Federation of Labor (AFL), particularly in Detroit's automotive sector where sit-down strikes at General Motors plants demonstrated new tactical approaches. Archival research at the Walter P. Reuther Library uncovered previously unexamined documents revealing how John L. Lewis's United Mine Workers provided both financial and strategic support to nascent industrial unions, fundamentally reshaping collective bargaining practices through the National Labor Relations Board's early rulings.</td>
+                <td class="criteria">• Extracts historical topics including time periods, organizations, and methodological approaches<br>• Returns output as a JSON array of strings<br>• Identifies proper nouns and specific historical elements</td>
+                <td class="output"><pre>
+[
+  "Great Depression",
+  "American labor movements",
+  "worker organization",
+  "resistance",
+  "quantitative analysis",
+  "strike data",
+  "Bureau of Labor Statistics",
+  "qualitative examination",
+  "union correspondence",
+  "mixed-methods approach",
+  "Wagner Act",
+  "legislative history",
+  "Congress of Industrial Organizations",
+  "CIO",
+  "American Federation of Labor",
+  "AFL",
+  "Detroit automotive sector",
+  "sit-down strikes",
+  "General Motors",
+  "tactical approaches",
+  "archival research",
+  "Walter P. Reuther Library",
+  "John L. Lewis",
+  "United Mine Workers",
+  "financial support",
+  "strategic support",
+  "industrial unions",
+  "collective bargaining",
+  "National Labor Relations Board"
+]
+</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements by providing a clean JSON array of topic strings without commentary. It effectively extracts the required historical elements, organizations, time periods, and methodological approaches from the scholarly text. The extraction is thorough and accurate, capturing both major themes and specific details.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with short abstract containing only 2-3 clear distinct topics to verify minimal extraction accuracy</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the relationship between sleep deprivation and cognitive performance in university students. Using a randomized controlled trial with 120 participants, we measured attention span, memory recall, and decision-making abilities after varying periods of sleep restriction. Results indicate significant impairments in all cognitive domains when sleep was reduced to fewer than six hours per night.</td>
+                <td class="criteria">• Extracts 2-3 distinct topics from the abstract<br>• Returns topics as a JSON array of strings</td>
+                <td class="output"><pre>
+[
+  "sleep deprivation",
+  "cognitive performance",
+  "university students",
+  "randomized controlled trial",
+  "attention span",
+  "memory recall",
+  "decision-making abilities",
+  "sleep restriction",
+  "cognitive domains",
+  "cognitive impairments"
+]
+</pre></td>
+                <td class="score-col"><span class="score score-low">5</span></td>
+                <td class="reasoning">While the solution meets the mandatory JSON formatting requirements and extracts valid topics, it significantly violates the secondary criteria by providing 10 topics instead of the specified 2-3 distinct topics. The response includes many granular terms that could be consolidated into broader topic categories.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
