@@ -1,5 +1,7 @@
 import os
 from anthropic import Anthropic
+from anthropic.types import Message
+from anthropic.types.beta import BetaMessage
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -55,30 +57,71 @@ def get_model(
     return os.getenv("ANTHROPIC_MODEL", default_model)
 
 
-def add_user_message(messages: list, content: str) -> None:
+def add_user_message(messages: list, message: Message | list | str) -> None:
     """
     Adds a user message to the list of messages.
 
     Args:
         messages (list): The list of messages.
-        content (str): The content of the user message.
+        message (Message | list | str): The user message object or its content.
     """
-
-    user_message = {"role": "user", "content": content}
+    if isinstance(message, list):
+        user_message = {
+            "role": "user",
+            "content": message
+        }
+    elif isinstance(message, Message):
+        user_message = {
+            "role": "user",
+            "content": message.content,
+        }
+    else:
+        user_message = {
+            "role": "user",
+            "content": [{"type": "text", "text": message}]
+        }
 
     messages.append(user_message)
 
 
-def add_assistant_message(messages: list, content: str) -> None:
+def add_assistant_message(messages: list, message: Message | list | str) -> None:
     """
     Adds an assistant message to the list of messages.
 
     Args:
         messages (list): The list of messages.
-        content (str): The content of the assistant message.
+        message (Message | list | str): The assistant message object or its content.
     """
 
-    assistant_message = {"role": "assistant", "content": content}
+    if isinstance(message, list):
+        assistant_message = {
+            "role": "assistant",
+            "content": message,
+        }
+    elif isinstance(message, (Message, BetaMessage)):
+        content_list = []
+        for block in message.content:
+            if block.type == "text":
+                content_list.append({"type": "text", "text": block.text})
+            elif block.type == "tool_use":
+                content_list.append(
+                    {
+                        "type": "tool_use",
+                        "id": block.id,
+                        "name": block.name,
+                        "input": block.input,
+                    }
+                )
+        assistant_message = {
+            "role": "assistant",
+            "content": content_list,
+        }
+    else:
+        # String messages need to be wrapped in a list with text block
+        assistant_message = {
+            "role": "assistant",
+            "content": [{"type": "text", "text": message}],
+        }
 
     messages.append(assistant_message)
 
@@ -90,7 +133,8 @@ def chat(
     system_prompt: str | None = None,
     temperature: float = 1.0,
     stop_sequences: list | None = None,
-) -> str:
+    tools: list | None = None
+) -> Message:
     """
     Passes the list of messages to the API and returns the assistant's
     response content.
@@ -104,6 +148,7 @@ def chat(
         temperature (float): The temperature for the API call.
         stop_sequences (list, optional): A list of sequences to stop the
             API call.
+        tools (list, optional): A list of tools to include in the API call.
     """
 
     params = {
@@ -119,6 +164,61 @@ def chat(
     if stop_sequences:
         params["stop_sequences"] = stop_sequences
 
+    if tools:
+        params["tools"] = tools
+
     message = client.messages.create(**params)
 
-    return message.content[0].text
+    return message
+
+
+def text_from_message(message: Message) -> str:
+    """
+    Extracts and concatenates the text content from a Message object.
+
+    Args:
+        message (Message): The Message object from which to extract text.
+    Returns:
+        str: A single string containing the concatenated text from all text
+            blocks in the message content.
+    """
+
+    return "\n".join([
+        block.text
+        for block in message.content
+        if block.type == "text"
+    ])
+
+
+def chat_stream(
+    messages: list,
+    client: Anthropic,
+    model: str,
+    system_prompt: str | None = None,
+    temperature: float = 1.0,
+    stop_sequences: list | None = None,
+    tools: list | None = None,
+    tool_choice: dict | None = None,
+    betas=[],
+):
+    params = {
+        "model": model,
+        "max_tokens": 1000,
+        "messages": messages,
+        "temperature": temperature,
+        "stop_sequences": stop_sequences,
+    }
+
+    if tool_choice:
+        params["tool_choice"] = tool_choice
+
+    if tools:
+        params["tools"] = tools
+
+    if system_prompt:
+        params["system"] = system_prompt
+
+    if betas:
+        params["betas"] = betas
+
+    return client.beta.messages.stream(**params)
