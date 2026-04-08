@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MAX_TOKENS = 1000
+MAX_TOKENS = 4000
 
 
 def get_client() -> Anthropic:
@@ -133,7 +133,9 @@ def chat(
     system_prompt: str | None = None,
     temperature: float = 1.0,
     stop_sequences: list | None = None,
-    tools: list | None = None
+    tools: list | None = None,
+    thinking: bool = False,
+    thinking_budget: int = 1024,
 ) -> Message:
     """
     Passes the list of messages to the API and returns the assistant's
@@ -149,6 +151,8 @@ def chat(
         stop_sequences (list, optional): A list of sequences to stop the
             API call.
         tools (list, optional): A list of tools to include in the API call.
+        thinking (bool, optional): Whether to enable thinking mode.
+        thinking_budget (int, optional): The budget for thinking mode.
     """
 
     params = {
@@ -166,6 +170,12 @@ def chat(
 
     if tools:
         params["tools"] = tools
+
+    if thinking:
+        params["thinking"] = {
+            "type": "enabled",
+            "budget_tokens": thinking_budget,
+        }
 
     message = client.messages.create(**params)
 
