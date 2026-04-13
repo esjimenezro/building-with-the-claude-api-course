@@ -162,14 +162,26 @@ def chat(
         "temperature": temperature,
     }
 
-    if system_prompt:
-        params["system"] = system_prompt
-
     if stop_sequences:
         params["stop_sequences"] = stop_sequences
 
     if tools:
-        params["tools"] = tools
+        # Always cache tools
+        tools_clone = tools.copy()
+        last_tool = tools_clone[-1].copy()
+        last_tool["cache_control"] = {"type": "ephemeral"}
+        tools_clone[-1] = last_tool
+        params["tools"] = tools_clone
+
+    if system_prompt:
+        # Always cache system prompts
+        params["system"] = [
+            {
+                "type": "text",
+                "text": system_prompt,
+                "cache_control": {"type": "ephemeral"},
+            }
+        ]
 
     if thinking:
         params["thinking"] = {
